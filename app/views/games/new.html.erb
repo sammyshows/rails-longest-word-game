@@ -1,0 +1,19 @@
+<h1>New Game</h1>
+<% @letters.each do |letter| %>
+  <%= letter %>
+<% end %>
+
+<div class="container">
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="row-container">
+      <div>
+        <input id="answer" type="text" name="answer" placeholder="Word containing above letters..." value=<%= params["answer"] %>>
+      </div>
+      <div>
+        <input id="submit-button" type="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+</div>
+
